@@ -3,11 +3,15 @@ dotenv.config();
 
 import { Pool } from "pg";
 
+if (!process.env.DATABASE_URL) {
+  console.error("CRITICAL ERROR: DATABASE_URL environment variable is missing!");
+}
+
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: process.env.NODE_ENV === "production" 
+    ? { rejectUnauthorized: false } 
+    : false, 
 });
 
 export const initDb = async (): Promise<void> => {
@@ -37,6 +41,10 @@ export const initDb = async (): Promise<void> => {
   `;
 
   try {
+    const client = await pool.connect();
+    console.log("Successfully connected to the Render PostgreSQL cluster.");
+    client.release();
+
     await pool.query(createUsersTable);
     await pool.query(createIssuesTable);
     console.log("Database Created successfully.");
