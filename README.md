@@ -8,6 +8,7 @@ A robust RESTful API built with **Node.js**, **Express.js**, and **PostgreSQL** 
 - **Role-Based Access Control (RBAC)**: Distinct permissions for `maintainer` and `contributor` roles.
 - **Issue Management**: Full CRUD operations for tracking system issues.
 - **Advanced Querying**: Supports filtering issues by `type` or `status`, and sorting by creation date (`newest`/`oldest`).
+- Code fully work & test on Postman. Like Registration, Login, Create, Get All, Get Single, Update, Single & Delete.
   
 ## 🛠️ Tech Stack
 
