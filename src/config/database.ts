@@ -13,7 +13,6 @@ export const pool = new Pool({
       : false,
 });
 
-// Initialization script to create schema tables safely
 export const initDb = async (): Promise<void> => {
   const createUsersTable = `
     CREATE TABLE IF NOT EXISTS users (
