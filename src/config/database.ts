@@ -43,9 +43,9 @@ export const initDb = async (): Promise<void> => {
   try {
     await pool.query(createUsersTable);
     await pool.query(createIssuesTable);
-    console.log("Database Connected successfully.");
+    console.log("Database Created successfully.");
   } catch (error) {
-    console.error("Error executing initialization:", error);
+    console.error("Error executing initialization queries:", error);
     process.exit(1);
   }
 };
