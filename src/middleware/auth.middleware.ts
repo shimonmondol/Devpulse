@@ -8,8 +8,6 @@ export interface JwtPayload {
   name: string;
   role: 'contributor' | 'maintainer';
 }
-
-// Extend default express framework request type parameters safely
 declare global {
   namespace Express {
     interface Request {

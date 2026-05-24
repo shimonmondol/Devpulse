@@ -17,7 +17,6 @@ export const errorHandler = (
     return;
   }
 
-  // Handle unique constraint violations from DB
   if ('code' in err && err.code === '23505') {
     res.status(StatusCodes.CONFLICT).json({
       success: false,
