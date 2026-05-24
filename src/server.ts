@@ -8,8 +8,8 @@ const Server = async () => {
   try {
     await initDb();
     console.log("DB connected");
-  } catch (err) {
-    console.error("DB init failed but server continues", err);
+  } catch (error) {
+    console.error("DB init failed:", error);
   }
 
   app.listen(PORT, () => {

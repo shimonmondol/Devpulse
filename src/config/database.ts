@@ -4,12 +4,16 @@ dotenv.config();
 import { Pool } from "pg";
 
 if (!process.env.DATABASE_URL) {
-  console.error("CRITICAL ERROR: DATABASE_URL environment variable is missing!");
+  console.error(
+    "CRITICAL ERROR: DATABASE_URL environment variable is missing!",
+  );
 }
 
 export const pool = new Pool({
-  connectionString: "DATABASE_URL",
-  ssl: { rejectUnauthorized: false }
+  ssl:
+    process.env.NODE_ENV === "production"
+      ? { rejectUnauthorized: false }
+      : false,
 });
 
 export const initDb = async (): Promise<void> => {
