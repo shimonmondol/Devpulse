@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { authenticate, authorize } from '../../middleware/auth.middleware.js';
+import { authenticate, authorize } from '../../middleware/auth.middleware';
 import { 
   createIssue, 
   getAllIssues, 
   getSingleIssue, 
   updateIssue, 
   deleteIssue 
-} from './issues.controller.js';
+} from './issues.controller';
 
 const router = Router();
 

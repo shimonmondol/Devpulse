@@ -1,7 +1,7 @@
-import { pool } from "../../config/database.js";
-import { AppError } from "../../utils/app-error.js";
+import { pool } from "../../config/database";
+import { AppError } from "../../utils/app-error";
 import { StatusCodes } from "http-status-codes";
-import type { IssueRow } from "./issues.types.js";
+import type { IssueRow } from "./issues.types";
 
 export class IssuesService {
   public static async createIssue(
